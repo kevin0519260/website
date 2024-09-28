@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open the Letter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+    }
+
+    #envelope {
+      position: relative;
+      width: 200px;
+      height: 150px;
+      margin: 100px auto;
+      background-color: #d3a675;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.6s ease-in-out;
+    }
+
+    #flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 75px;
+      background-color: #e7cba9;
+      transform-origin: bottom;
+      transform: rotateX(0deg);
+      transition: transform 0.6s ease-in-out;
+    }
+
+    #letter {
+      position: absolute;
+      bottom: -200px;
+      width: 100%;
+      height: 200px;
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      transition: bottom 0.6s ease-in-out;
+      opacity: 0;
+    }
+
+    #letter p {
+      margin: 0;
+      font-size: 24px;
+      font-weight: bold;
+      color: red; /* Letter color */
+    }
+
+    /* New styles for envelope and flap */
+    #envelope:hover {
+      background-color: #c19a6b;
+    }
+
+    #flap:hover {
+      background-color: #d6b89b;
+    }
+
+    /* Styles for hearts */
+    .hearts {
+      display: none; /* Hidden by default */
+      font-size: 30px;
+      color: red;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>YUNDEERCH HAMAGU DARAARAI!</h1>
+  
+  <div id="envelope">
+    <div id="flap"></div>
+    <div id="letter">
+      <p>HAIRTAISHUU</p>
+      <div class="hearts">❤️❤️❤️</div> <!-- Heart symbols -->
+    </div>
+  </div>
+
+  <script>
+    const envelope = document.getElementById("envelope");
+    const flap = document.getElementById("flap");
+    const letter = document.getElementById("letter");
+    const hearts = document.querySelector(".hearts"); // Hearts element
+
+    envelope.addEventListener("click", function() {
+      flap.style.transform = "rotateX(-180deg)";
+      letter.style.bottom = "0px";
+      letter.style.opacity = "1";
+      hearts.style.display = "block"; // Show hearts when opened
+    });
+  </script>
+
+</body>
+</html>
+
